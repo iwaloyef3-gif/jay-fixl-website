@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>State Govt Job Portal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+
+
+    .upload-box{
+    background:#f4f4f4;
+    padding:15px;
+    margin:10px 0;
+    border-radius:6px;
+}
+
+.upload-box label{
+    font-weight:bold;
+    display:block;
+    margin-bottom:5px;
+}
+
+.status{
+    display:block;
+    margin-top:5px;
+    color:green;
+    font-size:14px;
+}
+}
+
+body{
+    line-height:1.6;
+}
+
+/* NAVBAR */
+nav{
+    background:#004080;
+    padding:15px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    margin:5px 15px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* SECTIONS */
+section{
+    padding:60px 20px;
+    min-height:100vh;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+h2{
+    margin-bottom:20px;
+    color:#004080;
+}
+
+/* FORM */
+form{
+    background:#f4f4f4;
+    padding:20px;
+    border-radius:8px;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+button{
+    padding:10px 20px;
+    background:#004080;
+    color:white;
+    border:none;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.step{
+    display:none;
+}
+
+.step.active{
+    display:block;
+}
+
+/* FOOTER */
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav ul{
+        flex-direction:column;
+        text-align:center;
+        
+    }
+}
+</style>
+</head>
+<body>
+<link rel="stylesheet" href="fom.css">
+<!-- NAVBAR -->
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#phases">Application Phases</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#apply">Apply Now</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+<div class="container">
+<h2>State Government Job Application Portal</h2>
+<p>Welcome to the official State Government Recruitment Portal. 
+All applications must pass through different phases before final selection.</p>
+</div>
+</section>
+
+<!-- PHASES -->
+<<section id="phases">
+<div class="container">
+<h2>Application Phases</h2>
+
+<div class="phase-box">
+<div class="phase active" onclick="setPhase(0)">1. Online Registration</div>
+<div class="phase" onclick="setPhase(1)">2. Document Upload</div>
+<div class="phase" onclick="setPhase(2)">3. Screening Examination</div>
+<div class="phase" onclick="setPhase(3)">4. Interview</div>
+<div class="phase" onclick="setPhase(4)">5. Final Selection</div>
+<div class="phase" onclick="setPhase(5)">6. Appointment Letter</div>
+</div>
+
+<p id="phaseInfo">Current Phase: Online Registration</p>
+
+</div>
+</section>
+
+<!<section id="requirements">
+<div class="container">
+<h2>Application Requirements</h2>
+
+<form id="documentsForm">
+
+<div class="upload-box">
+<label>National ID</label>
+<input type="file" required>
+<span class="status">No file uploaded</span>
+</div>
+
+<div class="upload-box">
+<label>Birth Certificate</label>
+<input type="file" required>
+<span class="status">No file uploaded</span>
+</div>
+
+<div class="upload-box">
+<label>Educational Certificates</label>
+<input type="file" required>
+<span class="status">No file uploaded</span>
+</div>
+
+<div class="upload-box">
+<label>Passport Photograph</label>
+<input type="file" required>
+<span class="status">No file uploaded</span>
+</div>
+
+<div class="upload-box">
+<label>Curriculum Vitae (CV)</label>
+<input type="file" required>
+<span class="status">No file uploaded</span>
+</div>
+
+<<div class="upload-box">
+<label>Select State of Origin</label>
+<select required>
+<option value="">-- Select State --</option>
+<option>Abia</option>
+<option>Adamawa</option>
+<option>Akwa Ibom</option>
+<option>Anambra</option>
+<option>Bauchi</option>
+<option>Bayelsa</option>
+<option>Benue</option>
+<option>Borno</option>
+<option>Cross River</option>
+<option>Delta</option>
+<option>Ebonyi</option>
+<option>Edo</option>
+<option>Ekiti</option>
+<option>Enugu</option>
+<option>Gombe</option>
+<option>Imo</option>
+<option>Jigawa</option>
+<option>Kaduna</option>
+<option>Kano</option>
+<option>Katsina</option>
+<option>Kebbi</option>
+<option>Kogi</option>
+<option>Kwara</option>
+<option>Lagos</option>
+<option>Nasarawa</option>
+<option>Niger</option>
+<option>Ogun</option>
+<option>Ondo</option>
+<option>Osun</option>
+<option>Oyo</option>
+<option>Plateau</option>
+<option>Rivers</option>
+<option>Sokoto</option>
+<option>Taraba</option>
+<option>Yobe</option>
+<option>Zamfara</option>
+<option>FCT Abuja</option>
+</select>
+
+<label>Upload State of Origin Certificate</label>
+<input type="file" required>
+<span class="status">No file uploaded</span>
+</div>
+
+<button type="submit">Submit Documents</button>
+
+</form>
+</div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section id="apply">
+<div class="container">
+<h2>Online Application Form</h2>
+
+<form id="multiForm">
+
+<!-- STEP 1 -->
+<div class="step active">
+<h3>Step 1: Personal Information</h3>
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="text" placeholder="Phone Number" required>
+<button type="button" onclick="nextStep()">Next</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+<h3>Step 2: Education</h3>
+<input type="text" placeholder="Highest Qualification">
+<input type="text" placeholder="Institution">
+<input type="text" placeholder="Year Graduated">
+<button type="button" onclick="prevStep()">Previous</button>
+<button type="button" onclick="nextStep()">Next</button>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+<h3>Step 3: Upload Documents</h3>
+<label>Upload CV</label>
+<input type="file">
+<label>Upload Certificate</label>
+<input type="file">
+<label>Upload Passport</label>
+<input type="file">
+<button type="button" onclick="prevStep()">Previous</button>
+<button type="submit">Submit Application</button>
+</div>
+
+</form>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+<h2>Contact Office</h2>
+<p>Email: recruitment@stategov.org</p>
+<p>Phone: +234 000 000 0000</p>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>State Government Recruitment Portal © 2026</p>
+</footer>
+
+<script>
+let step = 0;
+const steps = document.querySelectorAll(".step");
+
+function showStep(){
+    steps.forEach((s, index)=>{
+        s.classList.remove("active");
+        if(index === step){
+            s.classList.add("active");
+        }
+    });
+}
+
+function nextStep(){
+    step++;
+    if(step >= steps.length) step = steps.length - 1;
+    showStep();
+}
+
+function prevStep(){
+    step--;
+    if(step < 0) step = 0;
+    showStep();
+
+  <script>
+const inputs = document.querySelectorAll(".upload-box input");
+
+inputs.forEach((input)=>{
+    input.addEventListener("change", function(){
+        const status = this.nextElementSibling;
+        if(this.files.length > 0){
+            status.textContent = this.files[0].name + " uploaded";
+        }
+    });
+});
+
+document.getElementById("documentsForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    alert("Documents uploaded successfully!");
+    <script>
+const inputs = document.querySelectorAll(".upload-box input");
+
+inputs.forEach((input)=>{
+    input.addEventListener("change", function(){
+        const status = this.nextElementSibling;
+        if(this.files.length > 0){
+            status.textContent = this.files[0].name + " uploaded";
+        }
+    });
+});
+</script>
+});
+</script>
+}
+</script>
+<script src="index.js"></script>
+</body>
+</html>
